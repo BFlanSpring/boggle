@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boggle Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to Boggle!</h1>
+    <div id="boggle-board">
+        {% for row in board %}
+            <div class="row">
+                {% for letter in row %}
+                    <div class="letter">{{ letter }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <form id="word-form">
+        <input type="text" id="word-input" placeholder="Enter a word">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+    <div id="score">Score: {{ score }}</div>
+    <div id="timer">Time left: 60s</div>
+    
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
